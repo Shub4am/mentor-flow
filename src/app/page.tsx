@@ -1,103 +1,254 @@
-import Image from "next/image";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import { IoMdSearch, IoMdArrowDropdown } from "react-icons/io";
+import { IoIosTrendingUp } from "react-icons/io";
+import { GoClock } from "react-icons/go";
+import { RxCross2 } from "react-icons/rx";
+import MentorsCard from "@/components/MentorsCard";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+const roleOptions = [
+  "SE/SDE",
+  "DS/AI/ML",
+  "Product Management",
+  "Project Management",
+  "Consulting",
+  "Quantitative Finance",
+];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+const companyOptions = ["FAANG", "Startups", "MNC's", "Others"];
+
+const slotOptions = ["This week", "Next week", "Anytime"];
+
+const ratingOptions = ["Low to high", "High to low"];
+
+const trendingSearches = ["Google", "Amazon", "Microsoft", "Slack"];
+const recentSearches = ["Google", "Amazon"];
+
+export default function MentorsPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [openFilter, setOpenFilter] = useState<string | null>(null);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [showSearchCard, setShowSearchCard] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const [isMentor, setIsMentor] = useState(false);
+
+  const [selectedFilters, setSelectedFilters] = useState({
+    role: [] as string[],
+    company: [] as string[],
+    slot: [] as string[],
+    rating: [] as string[],
+  });
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target as Node)
+      ) {
+        setShowSearchCard(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleFilter = (filterName: string) => {
+    setOpenFilter(openFilter === filterName ? null : filterName);
+  };
+
+  const handleFilterChange = (
+    filterType: keyof typeof selectedFilters,
+    value: string
+  ) => {
+    setSelectedFilters((prev) => {
+      const currentFilters = prev[filterType];
+      const newFilters = currentFilters.includes(value)
+        ? currentFilters.filter((item) => item !== value)
+        : [...currentFilters, value];
+
+      return {
+        ...prev,
+        [filterType]: newFilters,
+      };
+    });
+  };
+
+  const renderFilterDropdown = (
+    title: string,
+    options: string[],
+    filterType: keyof typeof selectedFilters
+  ) => (
+    <div className="relative">
+      <button
+        onClick={() => toggleFilter(title)}
+        className="flex items-center justify-between w-full bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300"
+      >
+        {title}
+        <IoMdArrowDropdown />
+      </button>
+      {openFilter === title && (
+        <div className="absolute z-10 w-60 bg-white border rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto">
+          {options.map((option) => (
+            <label
+              key={option}
+              className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                checked={selectedFilters[filterType].includes(option)}
+                onChange={() => handleFilterChange(filterType, option)}
+                className="mr-3 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <span className="text-sm">{option}</span>
+            </label>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      )}
+    </div>
+  );
+
+  const renderSelectedFilters = () => {
+    const filterLabels = {
+      role: "Role",
+      company: "Company",
+      slot: "Slot",
+      rating: "Rating",
+    };
+
+    return (
+      Object.keys(selectedFilters) as (keyof typeof selectedFilters)[]
+    ).map((filterType) =>
+      selectedFilters[filterType].map((filter) => (
+        <div
+          key={filter}
+          className="flex items-center bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-1 border-[#CBD5E1]"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          {filter}
+          <button
+            onClick={() => handleFilterChange(filterType, filter)}
+            className="ml-2 text-[#94A3B8]"
+          >
+            <RxCross2 size={20} />
+          </button>
+        </div>
+      ))
+    );
+  };
+
+  return (
+    <div className="flex flex-col">
+      <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-[106px]">
+        <p className="text-2xl">Mentors</p>
+
+        <button
+          onClick={() => setIsMentor(!isMentor)}
+          className={`flex items-center ${
+            isMentor ? "w-44" : "w-36"
+          } bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300`}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {isMentor ? "Switch to mentor" : "Become a mentor"}
+          {isMentor && (
+            <div className="pl-4">
+              <div className="w-8 h-5 rounded-full p-1 transition-colors duration-300 bg-[#E2E8F0]">
+                <div className="w-3 h-3 rounded-full bg-white transform transition-transform duration-300 " />
+              </div>
+            </div>
+          )}
+        </button>
+      </div>
+      <div className="px-[106px] w-full">
+        <div className="flex justify-between items-center py-5 gap-4">
+          {/* Search input */}
+          <div className="relative flex flex-col bg-[#E2E8F0] px-3 py-2 justify-center items-center rounded-lg w-[352px]">
+            <div className="flex items-center w-full">
+              <IoMdSearch className="text-[#94A3B8]" size={24} />
+              <input
+                type="text"
+                placeholder="Search by name, company, role"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setHasSearched(true);
+                }}
+                onFocus={() => setShowSearchCard(true)}
+                ref={searchInputRef}
+                className="w-full px-2 bg-transparent focus:outline-none"
+              />
+            </div>
+            {showSearchCard && (
+              <div className="absolute z-50 top-full mt-2 w-full bg-white border border-[#E2E8F0] rounded-lg shadow-lg p-4 drop-shadow-2xl">
+                {hasSearched ? (
+                  <>
+                    <p className="text-sm font-semibold">Recent search</p>
+                    <ul>
+                      {recentSearches.map((search, index) => (
+                        <div
+                          key={index}
+                          className="flex gap-2 p-2 items-center"
+                        >
+                          <GoClock size={20} className="text-[#94A3B8]" />
+                          <li className="text-sm text-[#334155]">{search}</li>
+                        </div>
+                      ))}
+                    </ul>
+                    <p className="text-sm font-semibold mt-2">
+                      Trending searches
+                    </p>
+                    <ul>
+                      {trendingSearches.slice(0, 2).map((search, index) => (
+                        <div
+                          key={index}
+                          className="flex gap-2 p-2 items-center"
+                        >
+                          <IoIosTrendingUp
+                            size={20}
+                            className="text-[#94A3B8]"
+                          />
+                          <li className="text-sm text-[#334155] ">{search}</li>
+                        </div>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-sm font-semibold">Trending searches</p>
+                    <ul>
+                      {trendingSearches.map((search, index) => (
+                        <div
+                          key={index}
+                          className="flex gap-2 p-2 items-center"
+                        >
+                          <IoIosTrendingUp
+                            size={20}
+                            className="text-[#94A3B8]"
+                          />
+                          <li className="text-sm text-[#334155] ">{search}</li>
+                        </div>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Filters */}
+          <div className="flex space-x-2 pl-5 py-2">
+            {renderFilterDropdown("Role", roleOptions, "role")}
+            {renderFilterDropdown("Company", companyOptions, "company")}
+            {renderFilterDropdown("Slot", slotOptions, "slot")}
+            {renderFilterDropdown("Rating", ratingOptions, "rating")}
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {renderSelectedFilters()}
+        </div>
+        <MentorsCard />
+      </div>
     </div>
   );
 }
