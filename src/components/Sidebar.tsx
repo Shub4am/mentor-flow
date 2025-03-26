@@ -18,7 +18,7 @@ function Sidebar() {
   const [selectedItem, setSelectedItem] = useState("Mentor");
 
   return (
-    <div className="h-dvh w-52 bg-[#F8FAFC] pt-24 px-5">
+    <div className="w-52 bg-[#F8FAFC] pt-24 px-5 fixed z-50 h-full ">
       {sidebarItems.map((item, index) => {
         const Icon = item.icon;
         const isActive = item.name === selectedItem;
