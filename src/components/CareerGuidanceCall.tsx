@@ -116,12 +116,6 @@ function CareerGuidanceCall() {
         <h1 className="text-2xl text-[#0F172A] leading-8 font-normal pb-8">
           Slot
         </h1>
-
-        {/* <div className="flex items-center gap-2 py-2">
-              <GoClock size={20} className="text-[#3B82F6]" />
-              <p>Time</p>
-            </div> */}
-
         <div className="w-full h-full rounded-xl border border-[#CBD5E1] p-6 gap-6  drop-shadow-2xl bg-white ">
           <div className="flex gap-3 py-2">
             <FaRegCalendarAlt size={20} className="text-[#3B82F6]" />
