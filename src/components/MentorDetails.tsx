@@ -20,18 +20,20 @@ function MentorDetails() {
   const mentorImage = searchParams.get("image") || "/mentor1.png";
   const mentorRole =
     searchParams.get("role") || "Sr. Software Engineering at Google";
-  const mentorBio = searchParams.get("bio") || "";
+  const mentorBio =
+    searchParams.get("bio") ||
+    "PM @Bytespectrum || xCloud @Google || xML summer @Amazon || DSA || Team Developement || Growth Management || Full Stack Developer(MERN) || Full Stack Developer(MERN)|| Growth Management || || Growth Management || Full Stack Developer";
 
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
-      <div className="-mx-[106px]">
-        <div className="w-full border-b-1 border-[#E2E8F0]"></div>
+      <div className="-mx-[186px]">
+        <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
       <div className="flex py-10 ">
         <Link
           href="/"
-          className="flex justify-center items-center absolute z-50 left-50 text-[#64748B] font-medium"
+          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium"
         >
           <IoIosArrowRoundBack size={30} />
           Back
@@ -86,11 +88,11 @@ function MentorDetails() {
               {mentorRole}
             </p>
             <div className="flex gap-2 justify-center items-center">
-              <AiOutlineLinkedin size={24} />
-              <FiInstagram size={20} />
-              <FaMedium size={20} />
-              <BsTwitterX size={20} />
-              <CiShare2 size={20} />
+              <AiOutlineLinkedin size={24} className="cursor-pointer" />
+              <FiInstagram size={20} className="cursor-pointer" />
+              <FaMedium size={20} className="cursor-pointer" />
+              <BsTwitterX size={20} className="cursor-pointer" />
+              <CiShare2 size={20} className="cursor-pointer" />
             </div>
           </div>
           <div className="bg-[#F1F5F9] p-5 rounded-lg min-h-24 text-sm leading-5">
@@ -100,7 +102,7 @@ function MentorDetails() {
       </div>
       {/* services  */}
       {/* separator */}
-      <div className="-mx-[106px]">
+      <div className="-mx-[186px]">
         <div className="w-full border-b-1 border-[#E2E8F0]"></div>
       </div>
       <div className="py-10">
@@ -110,7 +112,7 @@ function MentorDetails() {
         <ServicesCard />
       </div>
       {/* separator */}
-      <div className="-mx-[106px]">
+      <div className="-mx-[186px]">
         <div className="w-full border-b-2 border-[#E2E8F0]"></div>
       </div>
       {/* reviews */}

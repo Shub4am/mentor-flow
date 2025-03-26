@@ -30,6 +30,7 @@ export default function MentorsPage() {
   const [hasSearched, setHasSearched] = useState(false);
   const [showSearchCard, setShowSearchCard] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const filterRef = useRef<HTMLDivElement>(null);
 
   const [isMentor, setIsMentor] = useState(false);
 
@@ -47,6 +48,12 @@ export default function MentorsPage() {
         !searchInputRef.current.contains(event.target as Node)
       ) {
         setShowSearchCard(false);
+      }
+      if (
+        filterRef.current &&
+        !filterRef.current.contains(event.target as Node)
+      ) {
+        setOpenFilter(null);
       }
     };
 
@@ -82,7 +89,7 @@ export default function MentorsPage() {
     options: string[],
     filterType: keyof typeof selectedFilters
   ) => (
-    <div className="relative">
+    <div className="relative" ref={filterRef}>
       <button
         onClick={() => toggleFilter(title)}
         className="flex items-center justify-between w-full bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300"
@@ -237,7 +244,7 @@ export default function MentorsPage() {
           </div>
 
           {/* Filters */}
-          <div className="flex space-x-2 pl-5 py-2">
+          <div className="flex space-x-2 pl-5 py-2" ref={filterRef}>
             {renderFilterDropdown("Role", roleOptions, "role")}
             {renderFilterDropdown("Company", companyOptions, "company")}
             {renderFilterDropdown("Slot", slotOptions, "slot")}
