@@ -10,6 +10,12 @@ import {
 import { RiShoppingBag4Line } from "react-icons/ri";
 import Tabs from "./Tabs";
 import Image from "next/image";
+import Link from "next/link";
+
+const SERVICE_ROUTES = {
+  "1:1 call": "/mentor-details/call",
+  "Priority DM": "/mentor-details/dm",
+} as const;
 
 const tabs = [
   { label: "All" },
@@ -113,16 +119,34 @@ function ServicesCard() {
                 )}
                 <div className="flex justify-between items-start h-14">
                   <h1 className="text-xl text-[#334155]">{service.heading}</h1>
-                  <button
-                    className={`p-2 rounded-lg font-medium text-xs ${
-                      isServicesDisabled
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-[#334155] text-white hover:bg-[#1F2937]"
-                    }`}
-                    disabled={isServicesDisabled}
-                  >
-                    View Details
-                  </button>
+                  {service.service_type === "1:1 call" ||
+                  service.service_type === "Priority DM" ? (
+                    <Link
+                      href={
+                        SERVICE_ROUTES[
+                          service.service_type as keyof typeof SERVICE_ROUTES
+                        ]
+                      }
+                      className={`p-2 rounded-lg font-medium text-xs ${
+                        isServicesDisabled
+                          ? "bg-gray-400 cursor-not-allowed pointer-events-none"
+                          : "bg-[#334155] text-white hover:bg-[#1F2937]"
+                      }`}
+                    >
+                      View Details
+                    </Link>
+                  ) : (
+                    <button
+                      className={`p-2 rounded-lg font-medium text-xs ${
+                        isServicesDisabled
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-[#334155] text-white hover:bg-[#1F2937]"
+                      }`}
+                      disabled={isServicesDisabled}
+                    >
+                      View Details
+                    </button>
+                  )}
                 </div>
                 <p className="py-2 text-sm font-normal leading-5 text-[#334155] h-10">
                   {service.subheading.split("\n").map((line, index) => (
