@@ -15,8 +15,10 @@ function MentorDetails() {
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
-
-      <div className="flex  border-1 border-[#E2E8F0] border-l-0 border-r-0 py-10 ">
+      <div className="-mx-[106px]">
+        <div className="w-full border-b-1 border-[#E2E8F0]"></div>
+      </div>
+      <div className="flex py-10 ">
         <Link
           href="/"
           className="flex justify-center items-center absolute z-50 left-50 text-[#64748B] font-medium"
@@ -92,10 +94,20 @@ function MentorDetails() {
         </div>
       </div>
       {/* services  */}
-      <h1>
-        Services
+      {/* separator */}
+      <div className="-mx-[106px]">
+        <div className="w-full border-b-1 border-[#E2E8F0]"></div>
+      </div>
+      <div className="py-10">
+        <h1 className="text-[#0F172A] text-2xl leading-8 font-normal mb-6">
+          Services
+        </h1>
         <ServicesCard />
-      </h1>
+      </div>
+      {/* separator */}
+      <div className="-mx-[106px]">
+        <div className="w-full border-b-2 border-[#E2E8F0]"></div>
+      </div>
       {/* reviews */}
       <Reviews />
     </div>
