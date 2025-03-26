@@ -33,8 +33,8 @@ function Reviews() {
         <p className="text-[#64748B] text-base font-medium">3 Reviews | 5.0 </p>
         <Image
           src="/star.png"
-          width={200}
-          height={100}
+          width={12}
+          height={12}
           alt="ratings"
           unoptimized
           className="w-4 h-4"
@@ -52,10 +52,11 @@ function Reviews() {
             </p>
             <Image
               src="/star.png"
-              width={200}
-              height={100}
+              width={12}
+              height={12}
               alt="ratings"
               unoptimized
+              quality={100}
               className="w-4 h-4"
             />
           </div>
