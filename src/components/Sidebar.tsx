@@ -7,6 +7,7 @@ import {
   FaCalendarAlt,
   FaPaperPlane,
 } from "react-icons/fa";
+import Link from "next/link";
 
 interface SidebarProps {
   isIconOnly?: boolean;
@@ -37,7 +38,8 @@ function Sidebar({ isIconOnly = false }: SidebarProps) {
         const Icon = item.icon;
         const isActive = item.name === selectedItem;
         return (
-          <div
+          <Link
+            href="/"
             key={index}
             onClick={() => setSelectedItem(item.name)}
             className={`flex ${
@@ -52,7 +54,7 @@ function Sidebar({ isIconOnly = false }: SidebarProps) {
                 {item.name}
               </p>
             )}
-          </div>
+          </Link>
         );
       })}
     </div>
