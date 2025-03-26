@@ -12,6 +12,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import ServicesCard from "./ServicesCard";
 import Reviews from "./Reviews";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 function MentorDetails() {
   const searchParams = useSearchParams();
