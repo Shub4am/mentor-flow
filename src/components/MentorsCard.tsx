@@ -78,7 +78,15 @@ const MentorsCard = () => {
                 />
               </div>
               <Link
-                href="/mentor-details"
+                href={{
+                  pathname: "/mentor-details",
+                  query: {
+                    name: mentor.name,
+                    image: mentor.image,
+                    role: mentor.role,
+                    bio: mentor.bio,
+                  },
+                }}
                 className="bg-[#334155] p-2 text-white rounded-lg font-medium"
               >
                 View profile

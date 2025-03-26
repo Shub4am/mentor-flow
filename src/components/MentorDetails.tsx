@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
@@ -10,8 +11,17 @@ import Link from "next/link";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import ServicesCard from "./ServicesCard";
 import Reviews from "./Reviews";
+import { useSearchParams } from "next/navigation";
 
 function MentorDetails() {
+  const searchParams = useSearchParams();
+
+  const mentorName = searchParams.get("name") || "Jonny Rose";
+  const mentorImage = searchParams.get("image") || "/mentor1.png";
+  const mentorRole =
+    searchParams.get("role") || "Sr. Software Engineering at Google";
+  const mentorBio = searchParams.get("bio") || "";
+
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
@@ -28,7 +38,7 @@ function MentorDetails() {
         </Link>
         <div className="relative flex flex-col max-w-48 min-h-48">
           <Image
-            src="/mentor1.png"
+            src={mentorImage}
             alt="User picture"
             width={200}
             height={200}
@@ -58,7 +68,7 @@ function MentorDetails() {
             <div className="flex w-full justify-between items-center ">
               <div className="flex gap-2 justify-center items-center">
                 <h1 className="text-xl font-medium leading-7 text-[#334155]">
-                  Jonny Rose
+                  {mentorName}
                 </h1>
                 <IoShieldCheckmarkOutline
                   className="text-[#00C16A]"
@@ -73,7 +83,7 @@ function MentorDetails() {
 
           <div className="flex  justify-between items-center gap-4">
             <p className="text-lg font-normal leading-7 text-[#334155]">
-              Sr. Software Engineering at Google
+              {mentorRole}
             </p>
             <div className="flex gap-2 justify-center items-center">
               <AiOutlineLinkedin size={24} />
@@ -84,12 +94,7 @@ function MentorDetails() {
             </div>
           </div>
           <div className="bg-[#F1F5F9] p-5 rounded-lg min-h-24 text-sm leading-5">
-            <p className="text-md leading-5 text-[#334155]">
-              PM @Bytespectrum || xCloud @Google || xML summer @Amazon || DSA ||
-              Team Developement || Growth Management || Full Stack
-              Developer(MERN) || Full Stack Developer(MERN)|| Growth Management
-              || || Growth Management || Full Stack Developer
-            </p>
+            <p className="text-md leading-5 text-[#334155]">{mentorBio}</p>
           </div>
         </div>
       </div>
