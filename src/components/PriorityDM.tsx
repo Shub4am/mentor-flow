@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { GoClock } from "react-icons/go";
 import { IoIosArrowRoundBack } from "react-icons/io";
@@ -50,7 +50,7 @@ function PriorityDM() {
           Resume Review
         </h1>
         <p className="text-[#334155] text-sm font-normal leading-5 pb-4">
-          I'll refine your resume to land better opportunities.
+          I&apos;ll refine your resume to land better opportunities.
         </p>
         <p className="text-sm text-[#64748B] p-2">Assist you with</p>
         <div className="bg-[#EFF6FF] rounded-sm p-4">

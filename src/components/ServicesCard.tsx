@@ -29,6 +29,7 @@ const tabs = [
 function ServicesCard() {
   const [activeTab, setActiveTab] = useState("All");
   const [isServicesDisabled, setIsServicesDisabled] = useState(false);
+  console.log(isServicesDisabled, setIsServicesDisabled);
 
   const services = [
     {

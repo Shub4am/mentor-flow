@@ -125,6 +125,7 @@ export default function MentorsPage() {
       slot: "Slot",
       rating: "Rating",
     };
+    console.log(filterLabels);
 
     return (
       Object.keys(selectedFilters) as (keyof typeof selectedFilters)[]

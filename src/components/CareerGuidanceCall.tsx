@@ -36,7 +36,7 @@ function CareerGuidanceCall() {
       <div className="-mx-[186px]">
         <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
-      <div className="flex py-10 ">
+      <div className="flex py-10">
         <Link
           href="/mentor-details"
           className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium"
@@ -60,8 +60,8 @@ function CareerGuidanceCall() {
           Career Guidance
         </h1>
         <p className="text-[#334155] text-sm font-normal leading-5 pb-4">
-          I'll give you advice to help with your career decisions. I'll give you
-          advice to help with your career decisions.
+          I&apos;ll give you advice to help with your career decisions.
+          I&apos;ll give you advice to help with your career decisions.
         </p>
         <p className="text-sm text-[#64748B] p-2">Assist you with</p>
         <div className="bg-[#EFF6FF] rounded-sm p-4">
@@ -72,8 +72,8 @@ function CareerGuidanceCall() {
               career transitions and help you explore new fields.
             </li>
             <li>
-              Need advice on software engineering roles? I'll help you navigate
-              your options.
+              Need advice on software engineering roles? I&apos;ll help you
+              navigate your options.
             </li>
           </ul>
         </div>
