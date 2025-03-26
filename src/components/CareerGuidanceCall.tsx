@@ -1,12 +1,35 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { GoClock } from "react-icons/go";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { MdCurrencyRupee } from "react-icons/md";
 import { BiVideo } from "react-icons/bi";
+import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
+
+import { DayPicker, getDefaultClassNames } from "react-day-picker";
+import "react-day-picker/style.css";
+import { PiCaretDownBold } from "react-icons/pi";
 
 function CareerGuidanceCall() {
+  const [selected, setSelected] = useState<Date[] | undefined>();
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const defaultClassNames = getDefaultClassNames();
+
+  const timeSlots = [
+    "6:00 - 6:30PM",
+    "7:00 - 7:30PM",
+    "8:00 - 8:30PM",
+    "9:00 - 9:30PM",
+    "10:00 - 10:30PM",
+    "11:00 - 11:30PM",
+    "12:00 - 12:30PM",
+    "1:00 - 1:30PM",
+    "2:00 - 2:30PM",
+    "3:00 - 3:30PM",
+  ];
+
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
@@ -87,6 +110,81 @@ function CareerGuidanceCall() {
       {/* separator */}
       <div className="-mx-[106px]">
         <div className="w-full border-b-2 border-[#E2E8F0]"></div>
+      </div>
+
+      <div className="py-6">
+        <h1 className="text-2xl text-[#0F172A] leading-8 font-normal pb-8">
+          Slot
+        </h1>
+
+        {/* <div className="flex items-center gap-2 py-2">
+              <GoClock size={20} className="text-[#3B82F6]" />
+              <p>Time</p>
+            </div> */}
+
+        <div className="w-full h-full rounded-xl border border-[#CBD5E1] p-6 gap-6  drop-shadow-2xl bg-white ">
+          <div className="flex gap-3 py-2">
+            <FaRegCalendarAlt size={20} className="text-[#3B82F6]" />
+            <p>Date</p>
+          </div>
+
+          <div className="flex gap-6">
+            <div className="w-[510px] h-[400px] rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] flex-1 drop-shadow-2xl">
+              {/* date picker */}
+              <DayPicker
+                animate
+                mode="multiple"
+                selected={selected}
+                onSelect={setSelected}
+                showOutsideDays={false}
+                modifiersClassNames={{
+                  selected: "bg-[#334155] text-white rounded-md",
+                  today: "text-[#0F172A]",
+                  chevron: `${defaultClassNames.chevron} fill-[#0F172A]`,
+                }}
+                className="text-[#64748B] p-2  "
+              />
+            </div>
+            {/* time picker */}
+            <div className=" w-[366px] h-[400px] rounded-xl border border-[#CBD5E1] p-6 gap-6  drop-shadow-2xl bg-[#F8FAFC]  flex-1">
+              <div className="flex items-center gap-2 py-2 relative -top-16 -left-5">
+                <FaRegClock size={20} className="text-[#3B82F6]" />
+                <p>Time</p>
+              </div>
+              <p className="text-[#0F172A] relative -top-11 ">25 Nov, Monday</p>
+              <div className="grid grid-cols-2 gap-8 mt-4 py-5 ">
+                {timeSlots.map((slot, index) => (
+                  <button
+                    key={index}
+                    className={`p-2 rounded-lg text-xs font-medium relative -top-10 border border-[#E2E8F0]  ${
+                      selectedTime === slot
+                        ? "bg-[#64748B] text-white"
+                        : "bg-[#F8FAFC] text-[#334155]"
+                    }`}
+                    onClick={() => setSelectedTime(slot)}
+                  >
+                    {slot}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* timezone  */}
+
+          <div>
+            <p className="text-lg text-[#0F172A] pt-6 pb-3">Timezone</p>
+            <div className="flex justify-between items-center h-9 border border-[#CBD5E1] rounded-sm bg-white py-2 px-3 drop-shadow-lg cursor-pointer ">
+              <p>(GMT + 5:30) Chennai, Kolkata, Mumbai, New Delhi(IST)</p>
+              <PiCaretDownBold size={20} className="text-[#94A3B8]" />
+            </div>
+            <div className="flex justify-end py-6">
+              <button className="border border-[#334155] bg-[#334155] rounded-md text-white py-2 px-4 cursor-pointer">
+                Confirm details
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
