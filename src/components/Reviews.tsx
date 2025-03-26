@@ -32,7 +32,7 @@ function Reviews() {
       <div className="flex gap-2 items-center py-4">
         <p className="text-[#64748B] text-base font-medium">3 Reviews | 5.0 </p>
         <Image
-          src="/star.png"
+          src="/Star.png"
           width={12}
           height={12}
           alt="ratings"
@@ -51,7 +51,7 @@ function Reviews() {
               {review.ratings}
             </p>
             <Image
-              src="/star.png"
+              src="/Star.png"
               width={12}
               height={12}
               alt="ratings"
