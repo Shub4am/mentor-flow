@@ -39,18 +39,18 @@ const MentorsCard = () => {
           key={index}
           className="flex border-1 border-[#CBD5E1] drop-shadow-md rounded-xl mb-4"
         >
-          <div className="relative flex flex-col max-w-48 min-h-48">
+          <div className="relative flex flex-col max-w-[212px] min-h-48 p-5">
             <Image
               src={mentor.image}
               alt="User picture"
-              width={200}
+              width={212}
               height={200}
               unoptimized
               quality={100}
               className="h-full w-full rounded-lg object-cover"
             />
 
-            <div className="absolute bottom-0 rounded-b-lg p-2 flex w-[192px] justify-center items-center space-x-1 bg-[#33415566]">
+            <div className="absolute bottom-5 rounded-b-lg  flex w-[172px] justify-center items-center space-x-1 bg-[#33415566]">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Image
                   key={index}
