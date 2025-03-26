@@ -8,13 +8,15 @@ import { BsTwitterX } from "react-icons/bs";
 import { CiShare2 } from "react-icons/ci";
 import Link from "next/link";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import ServicesCard from "./ServicesCard";
+import Reviews from "./Reviews";
 
 function MentorDetails() {
   return (
-    <div>
+    <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
 
-      <div className="flex px-[106px] border-2 border-[#E2E8F0] border-l-0 py-10 ">
+      <div className="flex  border-1 border-[#E2E8F0] border-l-0 border-r-0 py-10 ">
         <Link
           href="/"
           className="flex justify-center items-center absolute z-50 left-50 text-[#64748B] font-medium"
@@ -90,7 +92,12 @@ function MentorDetails() {
         </div>
       </div>
       {/* services  */}
+      <h1>
+        Services
+        <ServicesCard />
+      </h1>
       {/* reviews */}
+      <Reviews />
     </div>
   );
 }
