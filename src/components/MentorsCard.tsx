@@ -37,7 +37,7 @@ const MentorsCard = () => {
       {Mentors.map((mentor, index) => (
         <div
           key={index}
-          className="flex border-1 border-[#CBD5E1] drop-shadow-md rounded-xl mb-4"
+          className="flex border-1 border-[#CBD5E1] shadow-lg drop-shadow-lg rounded-xl mb-4 bg-white"
         >
           <div className="relative flex flex-col max-w-[212px] min-h-48 p-5">
             <Image

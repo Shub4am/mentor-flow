@@ -160,7 +160,7 @@ export default function MentorsPage() {
           onClick={() => setIsMentor(!isMentor)}
           className={`flex items-center ${
             isMentor ? "w-44" : "w-36"
-          } bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300`}
+          } bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300 cursor-pointer`}
         >
           {isMentor ? "Switch to mentor" : "Become a mentor"}
           {isMentor && (
