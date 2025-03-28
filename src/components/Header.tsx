@@ -6,10 +6,10 @@ import { PiCaretDownLight } from "react-icons/pi";
 function Header() {
   return (
     <div className="h-16 flex justify-end items-center px-10 py-10 gap-4 ">
-      <div className="w-10 h-10 bg-white rounded-sm flex justify-center items-center drop-shadow-2xl border-1 border-neutral-300">
-        <CiBellOn className="text-[#94A3B8]" size={20} />
+      <div className="w-10 h-10 bg-white rounded-sm flex justify-center items-center drop-shadow-2xl border-1 border-neutral-300 cursor-pointer hover:bg-[#F8FAFC]">
+        <CiBellOn className="text-[#94A3B8] hover:text-black  " size={20} />
       </div>
-      <div className="flex items-center bg-white rounded-sm px-2 gap-2 py-2 drop-shadow-2xl border-1 border-neutral-300 ">
+      <div className="flex items-center bg-white rounded-sm px-2 gap-2 py-2 drop-shadow-2xl border-1 border-neutral-300 cursor-pointer">
         <Image
           src="/imgLogo.png"
           alt="User picture"

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { FiInstagram } from "react-icons/fi";
-import { FaMedium } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import { CiShare2 } from "react-icons/ci";
 import Link from "next/link";
@@ -25,15 +25,15 @@ function MentorDetails() {
     "PM @Bytespectrum || xCloud @Google || xML summer @Amazon || DSA || Team Developement || Growth Management || Full Stack Developer(MERN) || Full Stack Developer(MERN)|| Growth Management || || Growth Management || Full Stack Developer";
 
   return (
-    <div className="w-full h-dvh px-[106px]">
+    <div className="w-full h-full px-[106px]">
       {/* mentor details  */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
       <div className="flex py-10 ">
         <Link
           href="/"
-          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium"
+          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium hover:text-[#0c8af9]"
         >
           <IoIosArrowRoundBack size={30} />
           Back
@@ -102,7 +102,7 @@ function MentorDetails() {
       </div>
       {/* services  */}
       {/* separator */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b-1 border-[#E2E8F0]"></div>
       </div>
       <div className="py-10">
@@ -112,7 +112,7 @@ function MentorDetails() {
         <ServicesCard />
       </div>
       {/* separator */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b-2 border-[#E2E8F0]"></div>
       </div>
       {/* reviews */}

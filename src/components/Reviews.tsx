@@ -28,7 +28,6 @@ function Reviews() {
   return (
     <div className=" flex flex-col gap-5 py-10 drop-shadow-xl">
       <h1 className="text-[#0F172A] text-2xl leading-8 font-normal">Reviews</h1>
-
       <div className="flex gap-2 items-center py-4">
         <p className="text-[#64748B] text-base font-medium">3 Reviews | 5.0 </p>
         <Image
@@ -44,7 +43,7 @@ function Reviews() {
       {reviews.map((review, index) => (
         <div
           key={index}
-          className="w-full h-48 border border-[#CBD5E1] rounded-xl p-6  gap-3 bg-white"
+          className="w-full h-52 border border-[#CBD5E1] rounded-xl p-6  gap-3 bg-white"
         >
           <div className="flex gap-2 items-center py-4">
             <p className="text-[#64748B] text-base font-medium">
@@ -66,7 +65,7 @@ function Reviews() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 py-2">
+          <div className="flex items-center gap-2 py-3">
             <Image
               src={review.image}
               width={0}

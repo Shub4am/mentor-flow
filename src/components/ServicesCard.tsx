@@ -97,7 +97,7 @@ function ServicesCard() {
             activeTab={activeTab}
             onTabChange={(label) => setActiveTab(label)}
           />
-          <div className="grid grid-cols-2 gap-8 pb-20 pt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-20 pt-5">
             {filteredServices.map((service, index) => (
               <div
                 key={index}

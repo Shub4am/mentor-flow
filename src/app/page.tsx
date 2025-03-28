@@ -89,16 +89,20 @@ export default function MentorsPage() {
     options: string[],
     filterType: keyof typeof selectedFilters
   ) => (
-    <div className="relative" ref={filterRef}>
+    <div className="relative h-8" ref={filterRef}>
       <button
         onClick={() => toggleFilter(title)}
-        className="flex items-center justify-between w-full bg-white text-xs font-semibold p-2 rounded-lg drop-shadow-xl border-2 border-gray-300"
+        className="flex items-center justify-between w-full bg-white text-xs font-medium p-2 rounded-lg drop-shadow-xl border-2 border-gray-300"
       >
         {title}
         <IoMdArrowDropdown />
       </button>
       {openFilter === title && (
-        <div className="absolute z-10 w-60 bg-white border rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto">
+        <div
+          className={`absolute z-10  bg-white border rounded-lg shadow-lg drop-shadow-2xl mt-1 max-h-60 overflow-y-auto border-[#E2E8F0] ${
+            title === "Role" ? "w-60" : "w-40"
+          }`}
+        >
           {options.map((option) => (
             <label
               key={option}
@@ -148,7 +152,7 @@ export default function MentorsPage() {
   };
 
   return (
-    <div className="flex flex-col pl-[200px]">
+    <div className="flex flex-col pl-[100px]">
       <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-[106px]">
         <p className="text-2xl">Mentors</p>
 

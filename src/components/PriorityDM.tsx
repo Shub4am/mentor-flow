@@ -25,13 +25,13 @@ function PriorityDM() {
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
       <div className="flex py-10 ">
         <Link
           href="/mentor-details"
-          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium"
+          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium hover:text-[#0c8af9]"
         >
           <IoIosArrowRoundBack size={30} />
           Back
@@ -71,6 +71,8 @@ function PriorityDM() {
             </div>
           </div>
 
+          <div className="w-[2px] h-16 bg-[#E2E8F0]"></div>
+
           <div className="bg-[#EEF2FF] rounded-sm p-4 flex-1 px-2">
             <p className="text-[#64748B] text-sm pb-2">Replies</p>
             <div className="flex gap-2 items-center">
@@ -91,17 +93,20 @@ function PriorityDM() {
         </div>
       </div>
       {/* separator */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b-2 border-[#E2E8F0]"></div>
       </div>
       <div>
         <p className="text-2xl leading-8 text-[#0F172A] py-8">Your question</p>
       </div>
-      {/* rt editor */}
+      {/* rt editor ui */}
       <div className="flex justify-around items-center bg-white w-full h-11 border rounded-t-md border-[#CBD5E1]">
         <div className="flex items-center gap-8">
-          <button className="text-[#64748B] font-semibold">Heading 1</button>
-          <PiCaretDownBold size={20} className="text-[#64748B]" />
+          <button className="text-[#64748B] font-semibold ">Heading 1</button>
+          <PiCaretDownBold
+            size={20}
+            className="text-[#64748B] cursor-pointer"
+          />
         </div>
         <button className="text-[#64748B] font-semibold cursor-pointer">
           B
@@ -150,7 +155,7 @@ function PriorityDM() {
         name="questions"
         id="questions"
         placeholder="Ask your question"
-        className="h-64 w-full p-2 border border-[#CBD5E1] mb-5 bg-[#F8FAFC] rounded-b-md focus:outline-none"
+        className="h-64 w-full p-2 border border-[#CBD5E1] mb-5 bg-[#F8FAFC] rounded-b-md focus:outline-none resize-none"
         onChange={handleTextChange}
       />
       <div className="flex justify-end py-6">

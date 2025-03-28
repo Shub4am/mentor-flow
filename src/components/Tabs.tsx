@@ -12,9 +12,9 @@ function Tabs({ tabs, onTabChange, activeTab }: TabsProps) {
       {tabs.map((tab) => (
         <button
           key={tab.label}
-          className={`px-4 flex-1 py-2 rounded-md text-sm font-medium ${
+          className={`px-4 flex-1 py-2 rounded-md text-sm font-medium  ${
             activeTab === tab.label
-              ? "bg-white text-[#334155]"
+              ? "bg-white text-[#334155] drop-shadow-2xl"
               : "bg-[#F1F5F9] text-[#64748B]"
           }`}
           onClick={() => onTabChange(tab.label)}

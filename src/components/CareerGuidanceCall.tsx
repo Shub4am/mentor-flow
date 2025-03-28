@@ -13,7 +13,7 @@ import "react-day-picker/style.css";
 import { PiCaretDownBold } from "react-icons/pi";
 
 function CareerGuidanceCall() {
-  const [selected, setSelected] = useState<Date[] | undefined>();
+  const [selected, setSelected] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const defaultClassNames = getDefaultClassNames();
 
@@ -33,13 +33,13 @@ function CareerGuidanceCall() {
   return (
     <div className="w-full h-dvh px-[106px]">
       {/* mentor details  */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
       <div className="flex py-10">
         <Link
           href="/mentor-details"
-          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium"
+          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium hover:text-[#0c8af9]"
         >
           <IoIosArrowRoundBack size={30} />
           Back
@@ -87,6 +87,8 @@ function CareerGuidanceCall() {
             </div>
           </div>
 
+          <div className="w-[2px] h-16 bg-[#E2E8F0]"></div>
+
           <div className="bg-[#EEF2FF] rounded-sm p-4 flex-1 px-2">
             <p className="text-[#64748B] text-sm pb-2">Duration</p>
             <div className="flex gap-2 items-center">
@@ -108,7 +110,7 @@ function CareerGuidanceCall() {
       </div>
 
       {/* separator */}
-      <div className="-mx-[186px]">
+      <div className="-mx-[296px]">
         <div className="w-full border-b-2 border-[#E2E8F0]"></div>
       </div>
 
@@ -127,16 +129,16 @@ function CareerGuidanceCall() {
               {/* date picker */}
               <DayPicker
                 animate
-                mode="multiple"
+                mode="single"
                 selected={selected}
                 onSelect={setSelected}
                 showOutsideDays={false}
                 modifiersClassNames={{
-                  selected: "bg-[#334155] text-white rounded-md",
+                  selected: "bg-[#334155] text-white rounded-md ",
                   today: "text-[#0F172A]",
                   chevron: `${defaultClassNames.chevron} fill-[#0F172A]`,
                 }}
-                className="text-[#64748B] p-2  "
+                className="text-[#64748B] px-8 py-5"
               />
             </div>
             {/* time picker */}
@@ -145,14 +147,14 @@ function CareerGuidanceCall() {
                 <FaRegClock size={20} className="text-[#3B82F6]" />
                 <p>Time</p>
               </div>
-              <p className="text-[#0F172A] relative -top-11 ">25 Nov, Monday</p>
+              <p className="text-[#0F172A] relative -top-11">25 Nov, Monday</p>
               <div className="grid grid-cols-2 gap-8 mt-4 py-5 ">
                 {timeSlots.map((slot, index) => (
                   <button
                     key={index}
-                    className={`p-2 rounded-lg text-xs font-medium relative -top-10 border border-[#E2E8F0]  ${
+                    className={`p-2 rounded-lg text-xs font-medium relative -top-10 border border-[#E2E8F0] cursor-pointer ${
                       selectedTime === slot
-                        ? "bg-[#64748B] text-white"
+                        ? "bg-[#64748B] text-white "
                         : "bg-[#F8FAFC] text-[#334155]"
                     }`}
                     onClick={() => setSelectedTime(slot)}
@@ -173,7 +175,7 @@ function CareerGuidanceCall() {
               <PiCaretDownBold size={20} className="text-[#94A3B8]" />
             </div>
             <div className="flex justify-end py-6">
-              <button className="border border-[#334155] bg-[#334155] rounded-md text-white py-2 px-4 cursor-pointer">
+              <button className="border border-[#334155] bg-[#334155] rounded-md text-white py-2 px-4 cursor-pointer  hover:bg-[#1F2937]">
                 Confirm details
               </button>
             </div>
