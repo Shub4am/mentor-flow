@@ -152,7 +152,7 @@ export default function MentorsPage() {
   };
 
   return (
-    <div className="flex flex-col pl-[100px]">
+    <div className="flex flex-col">
       <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-[106px]">
         <p className="text-2xl">Mentors</p>
 

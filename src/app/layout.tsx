@@ -28,7 +28,7 @@ export default function RootLayout({
           <Sidebar />
           <div className="flex-1 flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 pl-20 transition-all duration-300 ease-in-out">
+            <main className="flex-1 transition-all duration-300 ease-in-out">
               {children}
             </main>
           </div>
