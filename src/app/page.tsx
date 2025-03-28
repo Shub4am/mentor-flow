@@ -155,7 +155,6 @@ export default function MentorsPage() {
     <div className="flex flex-col">
       <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-[106px]">
         <p className="text-2xl">Mentors</p>
-
         <button
           onClick={() => setIsMentor(!isMentor)}
           className={`flex items-center ${
@@ -172,8 +171,9 @@ export default function MentorsPage() {
           )}
         </button>
       </div>
+
       <div className="px-[106px] w-full">
-        <div className="flex justify-between items-center py-5 gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center py-5 gap-4">
           {/* Search input */}
           <div className="relative flex flex-col bg-[#E2E8F0] px-3 py-2 justify-center items-center rounded-lg w-[352px]">
             <div className="flex items-center w-full">
