@@ -11,9 +11,10 @@ import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
 import { DayPicker, getDefaultClassNames } from "react-day-picker";
 import "react-day-picker/style.css";
 import { PiCaretDownBold } from "react-icons/pi";
+import { format } from "date-fns";
 
 function CareerGuidanceCall() {
-  const [selected, setSelected] = useState<Date | undefined>();
+  const [selected, setSelected] = useState<Date | undefined>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const defaultClassNames = getDefaultClassNames();
 
@@ -55,7 +56,7 @@ function CareerGuidanceCall() {
       </div>
 
       {/* carreer guidance  */}
-      <div className="w-full h-[344px] border border-[#CBD5E1] rounded-xl p-6 gap-4 mb-5 drop-shadow-xl bg-white ">
+      <div className="w-full h-fit border border-[#CBD5E1] rounded-xl p-6 gap-4 mb-5 drop-shadow-xl bg-white ">
         <h1 className="text-xl text-[#334155] leading-7 font-medium py-2">
           Career Guidance
         </h1>
@@ -125,7 +126,7 @@ function CareerGuidanceCall() {
           </div>
 
           <div className="flex gap-6">
-            <div className="w-[510px] h-[400px] rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] flex-1 drop-shadow-2xl">
+            <div className="w-full h-[400px] rounded-xl border border-[#CBD5E1] bg-[#F8FAFC] flex-1 drop-shadow-2xl text-lime-">
               {/* date picker */}
               <DayPicker
                 animate
@@ -147,7 +148,9 @@ function CareerGuidanceCall() {
                 <FaRegClock size={20} className="text-[#3B82F6]" />
                 <p>Time</p>
               </div>
-              <p className="text-[#0F172A] relative -top-11">25 Nov, Monday</p>
+              <p className="text-[#0F172A] relative -top-11">
+                {selected ? format(selected, "dd MMM, EEEE") : "Select a date"}
+              </p>
               <div className="grid grid-cols-2 gap-8 mt-4 py-5 ">
                 {timeSlots.map((slot, index) => (
                   <button

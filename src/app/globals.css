@@ -9,17 +9,20 @@ body {
   --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
   /* Add more CSS variables here. */
 
-  .rdp-chevron {
-    fill: #0f172a;
-  }
-
   .rdp-caption_label {
     color: #0f172a;
     font-size: 16px;
     font-weight: 500;
   }
+  .rdp-chevron {
+    fill: #0f172a;
+  }
   .rdp-day_button {
     width: 70px;
+  }
+  .rdp-day:hover {
+    background-color: #a9ec21;
+    border-radius: 12px;
   }
 }
 
