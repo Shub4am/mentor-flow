@@ -25,20 +25,20 @@ function MentorDetails() {
     "PM @Bytespectrum || xCloud @Google || xML summer @Amazon || DSA || Team Developement || Growth Management || Full Stack Developer(MERN) || Full Stack Developer(MERN)|| Growth Management || || Growth Management || Full Stack Developer";
 
   return (
-    <div className="w-full h-full px-[106px]">
+    <div className="w-[350px] sm:w-full h-full sm:px-[106px]">
       {/* mentor details  */}
       <div className="-mx-[296px]">
         <div className="w-full border-b border-[#E2E8F0]"></div>
       </div>
-      <div className="flex py-10 ">
+      <div className="flex flex-col sm:flex-row py-10 max-w-[320px] sm:max-w-full">
         <Link
           href="/"
-          className="flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium hover:text-[#0c8af9]"
+          className="hidden sm:flex justify-center items-center absolute z-50 left-30 text-[#64748B] font-medium hover:text-[#0c8af9]"
         >
           <IoIosArrowRoundBack size={30} />
           Back
         </Link>
-        <div className="relative flex flex-col max-w-48 min-h-48">
+        <div className="relative flex flex-col sm:max-w-48 min-h-[100px] sm:min-h-48 w-full">
           <Image
             src={mentorImage}
             alt="User picture"
@@ -83,7 +83,7 @@ function MentorDetails() {
             </div>
           </div>
 
-          <div className="flex  justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center">
             <p className="text-lg font-normal leading-7 text-[#334155]">
               {mentorRole}
             </p>
@@ -96,7 +96,9 @@ function MentorDetails() {
             </div>
           </div>
           <div className="bg-[#F1F5F9] p-5 rounded-lg min-h-24 text-sm leading-5">
-            <p className="text-md leading-5 text-[#334155]">{mentorBio}</p>
+            <p className="text-md leading-5 text-[#334155] text-center sm:text-start">
+              {mentorBio}
+            </p>
           </div>
         </div>
       </div>
