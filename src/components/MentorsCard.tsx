@@ -37,7 +37,7 @@ const MentorsCard = () => {
       {Mentors.map((mentor, index) => (
         <div
           key={index}
-          className="flex border-1 border-[#CBD5E1] shadow-lg drop-shadow-lg rounded-xl mb-4 bg-white w-[440px] sm:w-full flex-col sm:flex-row"
+          className="flex border-1 border-[#CBD5E1] shadow-lg drop-shadow-lg rounded-xl mb-4 bg-white w-[320px] sm:w-full flex-col sm:flex-row"
         >
           <div className="relative flex flex-col w-full sm:max-w-[212px] sm:min-h-48 p-5">
             <Image
@@ -69,8 +69,8 @@ const MentorsCard = () => {
 
           {/* Mentors data */}
           <div className="flex flex-col gap-4 p-5 w-full">
-            <div className="flex justify-between items-center">
-              <div className="flex gap-2 justify-center items-center">
+            <div className="flex justify-between items-center flex-col sm:flex-row gap-2 ">
+              <div className="flex gap-2 justify-center items-center ">
                 <h1 className="text-xl font-medium leading-7">{mentor.name}</h1>
                 <IoShieldCheckmarkOutline
                   className="text-[#00C16A]"
@@ -87,7 +87,7 @@ const MentorsCard = () => {
                     bio: mentor.bio,
                   },
                 }}
-                className="bg-[#334155] p-2 text-white rounded-lg font-medium"
+                className="bg-[#334155] p-2 text-white rounded-lg font-medium text-center w-full sm:max-w-28"
               >
                 View profile
               </Link>

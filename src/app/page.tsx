@@ -123,14 +123,6 @@ export default function MentorsPage() {
   );
 
   const renderSelectedFilters = () => {
-    const filterLabels = {
-      role: "Role",
-      company: "Company",
-      slot: "Slot",
-      rating: "Rating",
-    };
-    console.log(filterLabels);
-
     return (
       Object.keys(selectedFilters) as (keyof typeof selectedFilters)[]
     ).map((filterType) =>
@@ -153,7 +145,7 @@ export default function MentorsPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-[106px]">
+      <div className="h-16 w-full bg-[#DBEAFE] flex justify-between items-center px-5 sm:px-[106px]">
         <p className="text-2xl">Mentors</p>
         <button
           onClick={() => setIsMentor(!isMentor)}
@@ -172,7 +164,7 @@ export default function MentorsPage() {
         </button>
       </div>
 
-      <div className="px-[106px] w-full">
+      <div className=" px-4 sm:px-[106px] w-full">
         <div className="flex flex-col sm:flex-row justify-between items-center py-5 gap-4">
           {/* Search input */}
           <div className="relative flex flex-col bg-[#E2E8F0] px-3 py-2 justify-center items-center rounded-lg w-[352px]">
@@ -249,7 +241,7 @@ export default function MentorsPage() {
           </div>
 
           {/* Filters */}
-          <div className="flex space-x-2 pl-5 py-2" ref={filterRef}>
+          <div className="flex space-x-2  py-2" ref={filterRef}>
             {renderFilterDropdown("Role", roleOptions, "role")}
             {renderFilterDropdown("Company", companyOptions, "company")}
             {renderFilterDropdown("Slot", slotOptions, "slot")}
